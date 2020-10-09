@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 import {ProfileService} from './profile.service'
 
 @Component({
@@ -10,11 +11,17 @@ import {ProfileService} from './profile.service'
 export class AppComponent {
   title = 'AngularService-DependencyInjection';
   name: any;
+  array: any;
   
 
   constructor(Profile: ProfileService){
    Profile.emp().subscribe(data=>{
      this.name = data
    })
+   Profile.getOperation().subscribe(data=>{
+     console.log(data)
+     this.array = data;
+   })
+
   }
 }
